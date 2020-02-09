@@ -59,7 +59,19 @@ namespace BeFaster.App.Tests.Solutions.CHK
         [TestCase("EEBE", ExpectedResult = 120)]
         [TestCase("EEBEEB", ExpectedResult = 160)]
         [TestCase("EEBEEBB", ExpectedResult = 190)]
-        public int FreeProductOfferCart(string cartItems)
+        public int DifferentFreeProductOfferCart(string cartItems)
+        {
+            return CheckoutSolution.ComputePrice(cartItems);
+        }
+
+        [TestCase("F", ExpectedResult = 10)]
+        [TestCase("FF", ExpectedResult = 20)]
+        [TestCase("FFF", ExpectedResult = 20)]
+        [TestCase("FFFF", ExpectedResult = 30)]
+        [TestCase("FFFFF", ExpectedResult = 40)]
+        [TestCase("FFFFFF", ExpectedResult = 40)]
+        [TestCase("FFFFFFF", ExpectedResult = 50)]
+        public int SameFreeProductOfferCart(string cartItems)
         {
             return CheckoutSolution.ComputePrice(cartItems);
         }

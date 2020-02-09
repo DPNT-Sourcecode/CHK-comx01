@@ -20,7 +20,10 @@ namespace BeFaster.App.Solutions.CHK
                     null),
                 new Product('E', 40,
                     null,
-                    new List<FreeProductOffer> { new FreeProductOffer(2, 'B') })
+                    new List<FreeProductOffer> { new FreeProductOffer(2, 'B') }),
+                new Product('F', 10,
+                    null,
+                    new List<FreeProductOffer> { new FreeProductOffer(2, 'F') })
             };
         }
     }

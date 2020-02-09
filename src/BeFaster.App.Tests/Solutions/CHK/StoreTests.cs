@@ -20,7 +20,7 @@ namespace BeFaster.App.Tests.Solutions.CHK
             //Act
 
             //Assert
-            store.ProductsInStore.Count().Should().Be(5);
+            store.ProductsInStore.Count().Should().Be(6);
         }
 
         [Test]
@@ -42,8 +42,9 @@ namespace BeFaster.App.Tests.Solutions.CHK
             //Act
 
             //Assert
-            store.ProductsInStore.Count(p => p.FreeOffer != null).Should().Be(1);
+            store.ProductsInStore.Count(p => p.FreeOffer != null).Should().Be(2);
         }
 
     }
 }
+

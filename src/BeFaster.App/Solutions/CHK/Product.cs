@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace BeFaster.App.Solutions.CHK
 {
@@ -6,9 +7,9 @@ namespace BeFaster.App.Solutions.CHK
     {
         public char Sku { get; }
         public int Price { get; }
-        public ProductOffer Offer { get; }
+        public List<ProductOffer> Offer { get; }
 
-        public Product(char sku, int price, ProductOffer offer)
+        public Product(char sku, int price, List<ProductOffer> offer)
         {
             this.Sku = sku;
             this.Price = price;
@@ -30,3 +31,4 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+

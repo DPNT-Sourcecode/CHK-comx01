@@ -60,6 +60,14 @@ namespace BeFaster.App.Solutions.CHK
                         var itemsInThisOffer = cart[sku]/offer.Count;
                         if (itemsInThisOffer > 0 && cart.ContainsKey(offer.FreeSku))
                         {
+                            if (sku == offer.FreeSku)
+                            {
+
+                            }
+                            else
+                            {
+                                
+                            }
                             cart[offer.FreeSku] -= itemsInThisOffer;
                             if (cart[offer.FreeSku] < 0)
                             {

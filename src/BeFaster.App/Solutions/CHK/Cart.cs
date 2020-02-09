@@ -51,6 +51,9 @@ namespace BeFaster.App.Solutions.CHK
 
             AdjustCartForFreeOffers(allowedProducts, cart);
 
+            
+
+
             foreach (var sku in cart.Keys)
             {
                 var currentSku = allowedProducts.First(p => p.Sku == sku);

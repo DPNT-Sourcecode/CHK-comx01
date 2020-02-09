@@ -52,8 +52,7 @@ namespace BeFaster.App.Solutions.CHK
             };
 
 
-            GroupOffer = new GroupOffer(new List<char> {'S', 'T', 'X', 'Y', 'Z'}, 45);
+            GroupOffer = new GroupOffer(new List<char> {'S', 'T', 'X', 'Y', 'Z'}, 45, 3);
         }
     }
 }
-

@@ -8,12 +8,14 @@ namespace BeFaster.App.Solutions.CHK
         public char Sku { get; }
         public int Price { get; }
         public List<SpecialPriceOffer> Offer { get; }
+        public List<FreeProductOffer> FreeOffer { get; }
 
-        public Product(char sku, int price, List<SpecialPriceOffer> offer)
+        public Product(char sku, int price, List<SpecialPriceOffer> offer = null, List<FreeProductOffer> freeOffer = null)
         {
             this.Sku = sku;
             this.Price = price;
             this.Offer = offer;
+            this.FreeOffer = freeOffer;
         }
 
         public int GetPrice(string skus)
@@ -42,5 +44,6 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+
 
 

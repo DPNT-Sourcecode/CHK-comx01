@@ -30,7 +30,7 @@ namespace BeFaster.App.Tests.Solutions.CHK
             //Arrange
             var product = new Product('A', 10, null);
             //Act
-            var totalPrice = product.GetPrice("AAA");
+            var totalPrice = product.GetPrice(3);
             //Assert
             totalPrice.Should().Be(30);
         }
@@ -41,9 +41,10 @@ namespace BeFaster.App.Tests.Solutions.CHK
             //Arrange
             var product = new Product('A', 10, new List<SpecialPriceOffer> {new SpecialPriceOffer(3, 25)});
             //Act
-            var totalPrice = product.GetPrice("AAA");
+            var totalPrice = product.GetPrice(3);
             //Assert
             totalPrice.Should().Be(25);
         }
     }
 }
+

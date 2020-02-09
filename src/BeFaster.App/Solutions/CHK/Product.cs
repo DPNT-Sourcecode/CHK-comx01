@@ -18,11 +18,9 @@ namespace BeFaster.App.Solutions.CHK
             this.FreeOffer = freeOffer;
         }
 
-        public int GetPrice(string skus)
+        public int GetPrice(int itemsWithThisSku)
         {
             var totalPrice = 0;
-            var itemsWithThisSku = skus.Count(s => s == Sku);
-
             if (Offer != null)
             {
                 var orderedOffers = Offer.OrderByDescending(o => o.Count);

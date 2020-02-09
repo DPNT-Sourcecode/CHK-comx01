@@ -51,7 +51,7 @@ namespace BeFaster.App.Solutions.CHK
 
             for (var skuCount = 0; skuCount < cart.Keys.Count; skuCount++)
             {
-                var sku = cart.Keys[skuCount];
+                var sku = cart.Keys.ElementAt(skuCount);
                 var currentSku = allowedProducts.First(p => p.Sku == sku);
                 if (currentSku.FreeOffer != null)
                 {
@@ -73,11 +73,12 @@ namespace BeFaster.App.Solutions.CHK
             foreach (var sku in cart.Keys)
             {
                 var currentSku = allowedProducts.First(p => p.Sku == sku);
-                basketTotal += currentSku.GetPrice(skus);
+                basketTotal += currentSku.GetPrice(cart[sku]);
             }
 
             return basketTotal;
         }
     }
 }
+
 

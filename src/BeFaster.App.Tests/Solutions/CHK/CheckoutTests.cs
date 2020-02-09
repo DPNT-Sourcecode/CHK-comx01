@@ -51,12 +51,14 @@ namespace BeFaster.App.Tests.Solutions.CHK
             return CheckoutSolution.ComputePrice(cartItems);
         }
 
-        [TestCase("EE", ExpectedResult = 40)]
-        [TestCase("BEE", ExpectedResult = 40)]
-        [TestCase("EBE", ExpectedResult = 40)]
-        [TestCase("EEB", ExpectedResult = 40)]
-        [TestCase("EEBEEB", ExpectedResult = 80)]
-        [TestCase("EEBEEBB", ExpectedResult = 110)]
+        [TestCase("EE", ExpectedResult = 80)]
+        [TestCase("BEE", ExpectedResult = 80)]
+        [TestCase("EBE", ExpectedResult = 80)]
+        [TestCase("EEB", ExpectedResult = 80)]
+        [TestCase("EEBB", ExpectedResult = 110)]
+        [TestCase("EEBE", ExpectedResult = 120)]
+        [TestCase("EEBEEB", ExpectedResult = 160)]
+        [TestCase("EEBEEBB", ExpectedResult = 190)]
         public int FreeProductOfferCart(string cartItems)
         {
             return CheckoutSolution.ComputePrice(cartItems);
@@ -64,5 +66,6 @@ namespace BeFaster.App.Tests.Solutions.CHK
 
     }
 }
+
 
 

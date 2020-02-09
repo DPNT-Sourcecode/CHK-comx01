@@ -50,6 +50,7 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Solutions\CHK\CartTests.cs" />
     <Compile Include="Solutions\CHK\CheckoutTests.cs" />
     <Compile Include="Solutions\CHK\ProductOfferTests.cs" />
     <Compile Include="Solutions\CHK\StoreTests.cs" />
@@ -80,3 +81,4 @@
     <Error Condition="!Exists('..\..\packages\NUnit3TestAdapter.3.16.1\build\net35\NUnit3TestAdapter.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\NUnit3TestAdapter.3.16.1\build\net35\NUnit3TestAdapter.props'))" />
   </Target>
 </Project>
+

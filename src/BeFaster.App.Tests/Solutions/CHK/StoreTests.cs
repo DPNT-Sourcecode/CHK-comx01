@@ -23,5 +23,17 @@ namespace BeFaster.App.Tests.Solutions.CHK
             store.ProductsInStore.Count().Should().Be(4);
         }
 
+        [Test]
+        public void ShouldHave2SpecialOfferProducts()
+        {
+            //Arrange
+            var store = new Store();
+            //Act
+
+            //Assert
+            store.ProductsInStore.Count(p => p.Offer != null).Should().Be(2);
+        }
+
     }
 }
+

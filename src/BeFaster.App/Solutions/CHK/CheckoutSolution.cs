@@ -9,6 +9,10 @@ namespace BeFaster.App.Solutions.CHK
         public static int ComputePrice(string skus)
         {
             var store = new Store();
+            if (store.HasInvalidProduct(skus))
+            {
+                return -1;
+            }
 
             var basketTotal = 0;
             for (var skuCount = 0; skuCount < skus.Length; skuCount++)
@@ -41,6 +45,19 @@ namespace BeFaster.App.Solutions.CHK
                 new Product('D', 15)
             };
         }
+
+        public bool HasInvalidProduct(string skus)
+        {
+            for (var skuCount = 0; skuCount < skus.Length; skuCount++)
+            {
+                var currentSku = ProductsInStore.FirstOrDefault(p => p.Sku == skus[skuCount]);
+                if (currentSku == null)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 
     public class Product
@@ -55,4 +72,5 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+
 

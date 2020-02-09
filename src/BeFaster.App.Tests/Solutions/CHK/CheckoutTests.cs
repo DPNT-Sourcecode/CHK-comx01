@@ -27,6 +27,7 @@ namespace BeFaster.App.Tests.Solutions.CHK
         [TestCase("AAAAA", ExpectedResult = 230)]
         [TestCase("BB", ExpectedResult = 45)]
         [TestCase("BBBB", ExpectedResult = 90)]
+        [TestCase("BBBBB", ExpectedResult = 120)]
         [TestCase("CCC", ExpectedResult = 60)]
         public int SpecialOfferCart(string cartItems)
         {
@@ -35,4 +36,5 @@ namespace BeFaster.App.Tests.Solutions.CHK
 
     }
 }
+
 

@@ -95,10 +95,10 @@ namespace BeFaster.App.Solutions.CHK
             var totalPrice = 0;
             var totalItemsOfThisSku = skus.Select(s => s == Sku).Count();
 
-            if (Offer != null && totalItemsOfThisSku % Offer.Count > 0)
+            if (Offer != null && totalItemsOfThisSku / Offer.Count > 0)
             {
-                var offerTimes = totalItemsOfThisSku / Offer.Count;
-                return offerTimes * Offer.SpecialPrice;
+                return (totalItemsOfThisSku / Offer.Count * Offer.SpecialPrice) +
+                    (totalItemsOfThisSku % Offer.Count) * Price;
             }
 
             return totalItemsOfThisSku * Price;
@@ -117,4 +117,5 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+
 

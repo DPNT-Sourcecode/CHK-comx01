@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BeFaster.App.Solutions.HLO;
+﻿using NUnit.Framework;
 using FluentAssertions;
-using NUnit.Framework;
+using BeFaster.App.Solutions.HLO;
 
 namespace BeFaster.App.Tests.Solutions.HLO
 {
     [TestFixture]
-    class HelloWorldTests
+    public class HelloWorldTests
     {
         [Test]
         public void ReturnStringTest()
@@ -21,3 +16,4 @@ namespace BeFaster.App.Tests.Solutions.HLO
 
     }
 }
+

@@ -74,14 +74,29 @@ namespace BeFaster.App.Solutions.CHK
     {
         public char Sku { get; }
         public int Price { get; }
+        public List<ProductOffer> Offers { get; }
 
-        public Product(char sku, int price)
+        public Product(char sku, int price, List<ProductOffer> offers)
         {
             this.Sku = sku;
             this.Price = price;
+            this.Offers = offers;
+        }
+    }
+
+    public class ProductOffer
+    {
+        public int Count { get; }
+        public int SpecialPrice { get; }
+
+        public ProductOffer(int count, int specialPrice)
+        {
+            this.Count = count;
+            this.SpecialPrice = specialPrice;
         }
     }
 }
+
 
 
 

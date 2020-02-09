@@ -10,7 +10,7 @@ namespace BeFaster.App.Solutions.CHK
         {
             var store = new Store();
             var cart = new Cart(skus);
-            if (cart.IsEmpty(skus) || Cart.HasInvalidProduct(skus))
+            if (cart.IsEmpty() || cart.HasInvalidProduct(store.ProductsInStore))
             {
                 return -1;
             }
@@ -28,7 +28,7 @@ namespace BeFaster.App.Solutions.CHK
 
     public class Store
     {
-        public List<Product> ProductsInStore { get; private set; }
+        public List<Product> ProductsInStore { get; }
 
         public Store()
         {
@@ -44,7 +44,7 @@ namespace BeFaster.App.Solutions.CHK
 
     public class Cart
     {
-        public string skus { get; private set; }
+        public string skus { get; }
 
         public Cart(string skus)
         {
@@ -56,7 +56,7 @@ namespace BeFaster.App.Solutions.CHK
             return string.IsNullOrWhiteSpace(skus);
         }
 
-        public bool HasInvalidProduct(List<Product> allowedProducts, string skus)
+        public bool HasInvalidProduct(List<Product> allowedProducts)
         {
             for (var skuCount = 0; skuCount < skus.Length; skuCount++)
             {
@@ -72,8 +72,8 @@ namespace BeFaster.App.Solutions.CHK
 
     public class Product
     {
-        public char Sku { get; private set; }
-        public int Price { get; private set; }
+        public char Sku { get; }
+        public int Price { get; }
 
         public Product(char sku, int price)
         {
@@ -82,6 +82,7 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+
 
 
 

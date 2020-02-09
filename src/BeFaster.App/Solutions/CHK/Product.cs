@@ -20,17 +20,20 @@ namespace BeFaster.App.Solutions.CHK
         {
             var totalPrice = 0;
             var itemsWithThisSku = skus.Count(s => s == Sku);
-            var orderedOffers = Offer.OrderByDescending(o => o.Count);
 
-            foreach (var offer in orderedOffers)
+            if (Offer != null)
             {
-                var itemsInThisOffer = itemsWithThisSku / offer.Count;
-                if (itemsInThisOffer > 0)
+                var orderedOffers = Offer.OrderByDescending(o => o.Count);
+                foreach (var offer in orderedOffers)
                 {
-                    totalPrice += (itemsInThisOffer * offer.SpecialPrice);
-                }
+                    var itemsInThisOffer = itemsWithThisSku / offer.Count;
+                    if (itemsInThisOffer > 0)
+                    {
+                        totalPrice += (itemsInThisOffer * offer.SpecialPrice);
+                    }
 
-                itemsWithThisSku -= itemsInThisOffer;
+                    itemsWithThisSku -= (itemsInThisOffer * offer.Count);
+                }
             }
 
             totalPrice += itemsWithThisSku * Price;
@@ -39,3 +42,4 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+

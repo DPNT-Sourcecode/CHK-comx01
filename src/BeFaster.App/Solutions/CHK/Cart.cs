@@ -33,7 +33,6 @@ namespace BeFaster.App.Solutions.CHK
 
         public int GetTotalPrice(List<Product> allowedProducts, GroupOffer storeGroupOffer)
         {
-            var basketTotal = 0;
             var cart = new Dictionary<char, int>();
 
             foreach (var sku in skus)
@@ -51,6 +50,19 @@ namespace BeFaster.App.Solutions.CHK
 
             AdjustCartForFreeOffers(allowedProducts, cart);
 
+            var basketTotal = AdjustBasketTotalForGroupOffer(storeGroupOffer, cart);
+            foreach (var sku in cart.Keys)
+            {
+                var currentSku = allowedProducts.First(p => p.Sku == sku);
+                basketTotal += currentSku.GetPrice(cart[sku]);
+            }
+
+            return basketTotal;
+        }
+
+        private int AdjustBasketTotalForGroupOffer(GroupOffer storeGroupOffer, Dictionary<char, int> cart)
+        {
+            var basketTotal = 0;
             if (storeGroupOffer != null)
             {
                 var groupOfferItems = 0;
@@ -72,16 +84,10 @@ namespace BeFaster.App.Solutions.CHK
                         while (groupOfferItems > 0 && cart.ContainsKey(offersku) && cart[offersku] > 0)
                         {
                             cart[offersku]--;
+                            groupOfferItems--;
                         }
                     }
                 }
-            }
-
-
-            foreach (var sku in cart.Keys)
-            {
-                var currentSku = allowedProducts.First(p => p.Sku == sku);
-                basketTotal += currentSku.GetPrice(cart[sku]);
             }
 
             return basketTotal;
@@ -124,5 +130,3 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
-
-

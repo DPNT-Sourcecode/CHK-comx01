@@ -9,8 +9,13 @@ namespace BeFaster.App.Solutions.CHK
         {
             var productsInStore = InitialiseStore();
 
+            var basketTotal = 0;
+            for (var skuCount = 0; skuCount < skus.Length; skuCount++)
+            {
 
+            }
 
+            return basketTotal;
         }
 
         public static List<Product> InitialiseStore()
@@ -37,5 +42,6 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+
 
 

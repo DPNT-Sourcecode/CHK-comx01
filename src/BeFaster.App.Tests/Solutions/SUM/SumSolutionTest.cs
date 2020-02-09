@@ -1,4 +1,5 @@
-﻿using BeFaster.App.Solutions.SUM;
+﻿using System;
+using BeFaster.App.Solutions.SUM;
 using NUnit.Framework;
 
 namespace BeFaster.App.Tests.Solutions.SUM
@@ -15,6 +16,13 @@ namespace BeFaster.App.Tests.Solutions.SUM
             return SumSolution.Sum(x, y);
         }
 
+        [TestCase(-1, 0)]
+        public void NegativeValueCheck(int x, int y)
+        {
+            Assert.Throws(typeof(ArgumentException), () => SumSolution.Sum(-1, 0));
+        }
+
     }
 }
+
 

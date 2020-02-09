@@ -33,8 +33,16 @@ namespace BeFaster.App.Solutions.CHK
         public int GetTotalPrice(List<Product> allowedProducts)
         {
             var basketTotal = 0;
-            var uniqueSkus = skus.Distinct().ToList();
+            var cart = this.skus;
+            var uniqueSkus = cart.Distinct().ToList();
 
+            for (var skuCount = 0; skuCount < uniqueSkus.Count(); skuCount++)
+            {
+                var currentSku = allowedProducts.First(p => p.Sku == uniqueSkus[skuCount]);
+                cart = currentSku.AdjustCarForFreeProduct(cart);
+            }
+
+            uniqueSkus = cart.Distinct().ToList();
             for (var skuCount = 0; skuCount < uniqueSkus.Count(); skuCount++)
             {
                 var currentSku = allowedProducts.First(p => p.Sku == uniqueSkus[skuCount]);

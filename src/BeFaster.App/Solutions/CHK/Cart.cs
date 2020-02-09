@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 
 namespace BeFaster.App.Solutions.CHK
@@ -48,8 +49,9 @@ namespace BeFaster.App.Solutions.CHK
                 
             }
 
-            foreach (var sku in cart.Keys)
+            for (var skuCount = 0; skuCount < cart.Keys.Count; skuCount++)
             {
+                var sku = cart.Keys[skuCount];
                 var currentSku = allowedProducts.First(p => p.Sku == sku);
                 if (currentSku.FreeOffer != null)
                 {
@@ -78,3 +80,4 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+

@@ -70,7 +70,13 @@ namespace BeFaster.App.Solutions.CHK
                 {
                     foreach (var offer in currentSku.FreeOffer)
                     {
-                        var itemsInThisOffer = cart[sku] / offer.Count;
+                        var neededCount = offer.Count;
+                        if (sku == offer.FreeSku)
+                        {
+                            neededCount++;
+                        }
+
+                        var itemsInThisOffer = cart[sku] / neededCount;
                         if (itemsInThisOffer > 0 && cart.ContainsKey(offer.FreeSku))
                         {
                             cart[offer.FreeSku] -= itemsInThisOffer;
@@ -85,3 +91,4 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+

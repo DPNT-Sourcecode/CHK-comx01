@@ -65,6 +65,7 @@ namespace BeFaster.App.Solutions.CHK
                 if (groupOfferItems / storeGroupOffer.Count > 0)
                 {
                     basketTotal = (groupOfferItems / storeGroupOffer.Count) * storeGroupOffer.SpecialPrice;
+                    groupOfferItems = (groupOfferItems / storeGroupOffer.Count) * storeGroupOffer.Count;
 
                     foreach (var offersku in storeGroupOffer.Skus)
                     {
@@ -123,4 +124,5 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+
 

@@ -81,7 +81,7 @@ namespace BeFaster.App.Tests.Solutions.CHK
             //Arrange
             var allowedProducts = new List<Product>
             {
-                new Product('A', 10, new List<ProductOffer> { new ProductOffer(3, 25) })
+                new Product('A', 10, new List<SpecialPriceOffer> { new SpecialPriceOffer(3, 25) })
             };
             //Act
             var cart = new Cart("AAA");
@@ -95,7 +95,7 @@ namespace BeFaster.App.Tests.Solutions.CHK
             //Arrange
             var allowedProducts = new List<Product>
             {
-                new Product('A', 10, new List<ProductOffer> { new ProductOffer(3, 25) })
+                new Product('A', 10, new List<SpecialPriceOffer> { new SpecialPriceOffer(3, 25) })
             };
             //Act
             var cart = new Cart("AAAA");
@@ -104,4 +104,5 @@ namespace BeFaster.App.Tests.Solutions.CHK
         }
     }
 }
+
 

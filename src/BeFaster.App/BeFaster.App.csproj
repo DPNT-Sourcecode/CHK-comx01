@@ -63,7 +63,7 @@
     <Compile Include="Solutions\CHK\Cart.cs" />
     <Compile Include="Solutions\CHK\CheckoutSolution.cs" />
     <Compile Include="Solutions\CHK\Product.cs" />
-    <Compile Include="Solutions\CHK\ProductOffer.cs" />
+    <Compile Include="Solutions\CHK\SpecialPriceOffer.cs" />
     <Compile Include="Solutions\CHK\Store.cs" />
     <Compile Include="Solutions\FIZ\FizzBuzzSolution.cs" />
     <Compile Include="Solutions\HLO\HelloSolution.cs" />

@@ -39,7 +39,7 @@ namespace BeFaster.App.Tests.Solutions.CHK
         public void ShouldCalculateCorrectPriceWithOffer()
         {
             //Arrange
-            var product = new Product('A', 10, new List<ProductOffer> {new ProductOffer(3, 25)});
+            var product = new Product('A', 10, new List<SpecialPriceOffer> {new SpecialPriceOffer(3, 25)});
             //Act
             var totalPrice = product.GetPrice("AAA");
             //Assert
@@ -47,4 +47,5 @@ namespace BeFaster.App.Tests.Solutions.CHK
         }
     }
 }
+
 

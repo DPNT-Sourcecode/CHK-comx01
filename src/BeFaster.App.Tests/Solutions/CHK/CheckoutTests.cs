@@ -51,6 +51,18 @@ namespace BeFaster.App.Tests.Solutions.CHK
             return CheckoutSolution.ComputePrice(cartItems);
         }
 
+        [TestCase("EE", ExpectedResult = 40)]
+        [TestCase("BEE", ExpectedResult = 40)]
+        [TestCase("EBE", ExpectedResult = 40)]
+        [TestCase("EEB", ExpectedResult = 40)]
+        [TestCase("EEBEEB", ExpectedResult = 80)]
+        [TestCase("EEBEEBB", ExpectedResult = 110)]
+        public int FreeProductOfferCart(string cartItems)
+        {
+            return CheckoutSolution.ComputePrice(cartItems);
+        }
+
     }
 }
+
 

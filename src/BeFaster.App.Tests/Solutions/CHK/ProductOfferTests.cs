@@ -18,7 +18,7 @@ namespace BeFaster.App.Tests.Solutions.CHK
             //Arrange
             var count = 2;
             var specialPrice = 20;
-            var productOffer = new ProductOffer(count, specialPrice);
+            var productOffer = new SpecialPriceOffer(count, specialPrice);
             //Act
 
             //Assert
@@ -28,3 +28,4 @@ namespace BeFaster.App.Tests.Solutions.CHK
 
     }
 }
+

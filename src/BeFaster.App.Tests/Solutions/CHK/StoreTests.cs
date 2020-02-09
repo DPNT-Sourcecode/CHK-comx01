@@ -20,30 +20,31 @@ namespace BeFaster.App.Tests.Solutions.CHK
             //Act
 
             //Assert
-            store.ProductsInStore.Count().Should().Be(6);
+            store.ProductsInStore.Count().Should().Be(26);
         }
 
         [Test]
-        public void ShouldHave2SpecialOfferProducts()
+        public void ShouldHave7SpecialOfferProducts()
         {
             //Arrange
             var store = new Store();
             //Act
 
             //Assert
-            store.ProductsInStore.Count(p => p.Offer != null).Should().Be(2);
+            store.ProductsInStore.Count(p => p.Offer != null).Should().Be(7);
         }
 
         [Test]
-        public void ShouldHave1FreeOfferProducts()
+        public void ShouldHave5FreeOfferProducts()
         {
             //Arrange
             var store = new Store();
             //Act
 
             //Assert
-            store.ProductsInStore.Count(p => p.FreeOffer != null).Should().Be(2);
+            store.ProductsInStore.Count(p => p.FreeOffer != null).Should().Be(5);
         }
 
     }
 }
+

@@ -72,7 +72,7 @@ namespace BeFaster.App.Tests.Solutions.CHK
             //Act
             var cart = new Cart("AAA");
             //Assert
-            cart.GetTotalPrice(allowedProducts).Should().Be(30);
+            cart.GetTotalPrice(allowedProducts, null).Should().Be(30);
         }
 
         [Test]
@@ -86,7 +86,7 @@ namespace BeFaster.App.Tests.Solutions.CHK
             //Act
             var cart = new Cart("AAA");
             //Assert
-            cart.GetTotalPrice(allowedProducts).Should().Be(25);
+            cart.GetTotalPrice(allowedProducts, null).Should().Be(25);
         }
 
         [Test]
@@ -100,7 +100,8 @@ namespace BeFaster.App.Tests.Solutions.CHK
             //Act
             var cart = new Cart("AAAA");
             //Assert
-            cart.GetTotalPrice(allowedProducts).Should().Be(35);
+            cart.GetTotalPrice(allowedProducts, null).Should().Be(35);
         }
     }
 }
+

@@ -19,7 +19,8 @@ namespace BeFaster.App.Solutions.CHK
                 return -1;
             }
 
-            return cart.GetTotalPrice(store.ProductsInStore);
+            return cart.GetTotalPrice(store.ProductsInStore, store.GroupOffer);
         }
     }
 }
+

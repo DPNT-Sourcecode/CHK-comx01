@@ -31,7 +31,7 @@ namespace BeFaster.App.Solutions.CHK
             return false;
         }
 
-        public int GetTotalPrice(List<Product> allowedProducts)
+        public int GetTotalPrice(List<Product> allowedProducts, GroupOffer storeGroupOffer)
         {
             var basketTotal = 0;
             var cart = new Dictionary<char, int>();

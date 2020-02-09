@@ -12,6 +12,7 @@ namespace BeFaster.App.Solutions.CHK
             var basketTotal = 0;
             for (var skuCount = 0; skuCount < skus.Length; skuCount++)
             {
+                var currentSku = 
 
             }
 
@@ -20,7 +21,17 @@ namespace BeFaster.App.Solutions.CHK
 
         public static List<Product> InitialiseStore()
         {
-            return new List<Product>()
+            return 
+        }
+    }
+
+    public class Store
+    {
+        public List<Product> ProductsInStore { get; set; }
+
+        public Store()
+        {
+            ProductsInStore = new List<Product>()
             {
                 new Product("A", 50),
                 new Product("B", 30),
@@ -42,6 +53,7 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+
 
 
 

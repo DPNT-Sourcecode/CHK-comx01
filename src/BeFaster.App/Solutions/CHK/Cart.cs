@@ -51,7 +51,20 @@ namespace BeFaster.App.Solutions.CHK
 
             AdjustCartForFreeOffers(allowedProducts, cart);
 
-            
+            if (storeGroupOffer != null)
+            {
+                var groupOfferItems = 0;
+                foreach (var offersku in storeGroupOffer.Skus)
+                {
+                    groupOfferItems += cart[offersku];
+                }
+
+                if (groupOfferItems / storeGroupOffer.Count > 0)
+                {
+
+                    basketTotal = (groupOfferItems / storeGroupOffer.Count) * storeGroupOffer.SpecialPrice;
+                }
+            }
 
 
             foreach (var sku in cart.Keys)

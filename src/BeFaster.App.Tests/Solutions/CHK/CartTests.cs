@@ -16,10 +16,35 @@ namespace BeFaster.App.Tests.Solutions.CHK
         public void ShouldReturnTrueIfCartIsEmpty()
         {
             //Arrange
-            var cart = new Cart("");
             //Act
+            var cart = new Cart("");
             //Assert
             cart.IsEmpty().Should().BeTrue();
         }
+
+        [Test]
+        public void ShouldReturnFalseIfCartIsEmpty()
+        {
+            //Arrange
+            //Act
+            var cart = new Cart("ABC");
+            //Assert
+            cart.IsEmpty().Should().BeFalse();
+        }
+
+        [Test]
+        public void ShouldReturnTrueIfCartHasInvalidProducts()
+        {
+            //Arrange
+            var allowedProducts = new List<Product>
+            {
+                new Product('A', 10, null)
+            };
+            //Act
+            var cart = new Cart("ABC");
+            //Assert
+            cart.HasInvalidProduct(allowedProducts).Should().BeTrue();
+        }
     }
 }
+

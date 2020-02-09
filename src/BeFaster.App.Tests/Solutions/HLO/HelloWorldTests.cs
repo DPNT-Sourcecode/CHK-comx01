@@ -10,10 +10,11 @@ namespace BeFaster.App.Tests.Solutions.HLO
         [Test]
         public void ReturnStringTest()
         {
-            HelloSolution.Hello("").Should().Be("Hello World!");
+            HelloSolution.Hello("").Should().Be("Hello, World!");
 
         }
 
     }
 }
+
 

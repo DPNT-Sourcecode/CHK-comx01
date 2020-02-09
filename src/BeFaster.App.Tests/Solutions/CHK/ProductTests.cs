@@ -47,5 +47,3 @@ namespace BeFaster.App.Tests.Solutions.CHK
         }
     }
 }
-
-

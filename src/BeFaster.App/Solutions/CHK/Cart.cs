@@ -39,7 +39,7 @@ namespace BeFaster.App.Solutions.CHK
             for (var skuCount = 0; skuCount < uniqueSkus.Count(); skuCount++)
             {
                 var currentSku = allowedProducts.First(p => p.Sku == uniqueSkus[skuCount]);
-                cart = currentSku.AdjustCarForFreeProduct(cart);
+                cart = currentSku.AdjustCartForFreeProduct(cart);
             }
 
             uniqueSkus = cart.Distinct().ToList();

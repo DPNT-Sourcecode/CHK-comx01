@@ -15,14 +15,7 @@ namespace BeFaster.App.Solutions.CHK
                 return -1;
             }
 
-            var basketTotal = 0;
-            for (var skuCount = 0; skuCount < skus.Length; skuCount++)
-            {
-                var currentSku = store.ProductsInStore.First(p => p.Sku == skus[skuCount]);
-                basketTotal += currentSku.Price;
-            }
-
-            return basketTotal;
+            return cart.TotalPrice(store.ProductsInStore);
         }
     }
 
@@ -68,6 +61,18 @@ namespace BeFaster.App.Solutions.CHK
             }
             return false;
         }
+
+        public int TotalPrice(List<Product> allowedProducts)
+        {
+            var basketTotal = 0;
+            for (var skuCount = 0; skuCount < skus.Length; skuCount++)
+            {
+                var currentSku = allowedProducts.First(p => p.Sku == skus[skuCount]);
+                basketTotal += currentSku.Price;
+            }
+
+            return basketTotal;
+        }
     }
 
     public class Product
@@ -96,6 +101,7 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+
 
 
 

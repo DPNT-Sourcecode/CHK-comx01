@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="Solutions\CHK\CheckoutTests.cs" />
     <Compile Include="Solutions\CHK\ProductOfferTests.cs" />
+    <Compile Include="Solutions\CHK\StoreTests.cs" />
     <Compile Include="Solutions\HLO\HelloWorldTests.cs" />
     <Compile Include="Solutions\SUM\SumSolutionTest.cs" />
     <Compile Include="Solutions\TST\OneTest.cs" />

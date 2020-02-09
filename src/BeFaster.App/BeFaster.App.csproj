@@ -64,6 +64,7 @@
     <Compile Include="Solutions\CHK\CheckoutSolution.cs" />
     <Compile Include="Solutions\CHK\Product.cs" />
     <Compile Include="Solutions\CHK\FreeProductOffer.cs" />
+    <Compile Include="Solutions\CHK\GroupOffer.cs" />
     <Compile Include="Solutions\CHK\SpecialPriceOffer.cs" />
     <Compile Include="Solutions\CHK\Store.cs" />
     <Compile Include="Solutions\FIZ\FizzBuzzSolution.cs" />

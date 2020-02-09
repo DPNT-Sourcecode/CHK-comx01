@@ -45,10 +45,12 @@ namespace BeFaster.App.Solutions.CHK
                 new Product('V', 50, 
                     new List<SpecialPriceOffer> { new SpecialPriceOffer(2, 90), new SpecialPriceOffer(3, 130)}),
                 new Product('W', 20),
-                new Product('X', 90),
-                new Product('Y', 10),
-                new Product('Z', 50)
+                new Product('X', 17),
+                new Product('Y', 20),
+                new Product('Z', 21)
             };
+
+            
         }
     }
 }

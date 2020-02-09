@@ -33,19 +33,44 @@ namespace BeFaster.App.Solutions.CHK
         public int GetTotalPrice(List<Product> allowedProducts)
         {
             var basketTotal = 0;
-            var cart = this.skus;
-            var uniqueSkus = cart.Distinct().ToList();
+            var cart = new Dictionary<char, int>();
 
-            for (var skuCount = 0; skuCount < uniqueSkus.Count(); skuCount++)
+            foreach (var sku in skus)
             {
-                var currentSku = allowedProducts.First(p => p.Sku == uniqueSkus[skuCount]);
-                cart = currentSku.AdjustCartForFreeProduct(cart);
+                if (cart.ContainsKey(sku))
+                {
+                    cart[sku] += 1;
+                }
+                else
+                {
+                    cart.Add(sku, 1);
+                }
+                
             }
 
-            uniqueSkus = cart.Distinct().ToList();
-            for (var skuCount = 0; skuCount < uniqueSkus.Count(); skuCount++)
+            foreach (var sku in cart.Keys)
             {
-                var currentSku = allowedProducts.First(p => p.Sku == uniqueSkus[skuCount]);
+                var currentSku = allowedProducts.First(p => p.Sku == sku);
+                if (currentSku.FreeOffer != null)
+                {
+                    foreach (var offer in currentSku.FreeOffer)
+                    {
+                        var itemsInThisOffer = cart[sku]/offer.Count;
+                        if (itemsInThisOffer > 0 && cart.ContainsKey(offer.FreeSku))
+                        {
+                            cart[offer.FreeSku] -= itemsInThisOffer;
+                            if (cart[offer.FreeSku] < 0)
+                            {
+                                cart[offer.FreeSku] = 0;
+                            }
+                        }
+                    }
+                }
+            }
+
+            foreach (var sku in cart.Keys)
+            {
+                var currentSku = allowedProducts.First(p => p.Sku == sku);
                 basketTotal += currentSku.GetPrice(skus);
             }
 

@@ -3,7 +3,7 @@
     public class FreeProductOffer
     {
         public int Count { get; }
-        public int FreeSku { get; }
+        public char FreeSku { get; }
 
         public FreeProductOffer(int count, char freeSku)
         {

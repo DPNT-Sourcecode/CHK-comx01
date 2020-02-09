@@ -45,6 +45,50 @@ namespace BeFaster.App.Tests.Solutions.CHK
             //Assert
             cart.HasInvalidProduct(allowedProducts).Should().BeTrue();
         }
+
+        [Test]
+        public void ShouldReturnFalseIfCartHasValidProducts()
+        {
+            //Arrange
+            var allowedProducts = new List<Product>
+            {
+                new Product('A', 10, null),
+                new Product('C', 23, null)
+            };
+            //Act
+            var cart = new Cart("ACACAAACAC");
+            //Assert
+            cart.HasInvalidProduct(allowedProducts).Should().BeFalse();
+        }
+
+        [Test]
+        public void ShouldGetCorrectTotalPriceWithoutOffer()
+        {
+            //Arrange
+            var allowedProducts = new List<Product>
+            {
+                new Product('A', 10, null)
+            };
+            //Act
+            var cart = new Cart("AAA");
+            //Assert
+            cart.GetTotalPrice(allowedProducts).Should().Be(30);
+        }
+
+        [Test]
+        public void ShouldGetCorrectTotalPriceWithOffer()
+        {
+            //Arrange
+            var allowedProducts = new List<Product>
+            {
+                new Product('A', 10, new ProductOffer(3, 25))
+            };
+            //Act
+            var cart = new Cart("AAA");
+            //Assert
+            cart.GetTotalPrice(allowedProducts).Should().Be(25);
+        }
     }
 }
+
 

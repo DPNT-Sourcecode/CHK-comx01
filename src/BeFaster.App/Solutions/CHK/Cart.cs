@@ -56,7 +56,10 @@ namespace BeFaster.App.Solutions.CHK
                 var groupOfferItems = 0;
                 foreach (var offersku in storeGroupOffer.Skus)
                 {
-                    groupOfferItems += cart[offersku];
+                    if (cart.ContainsKey(offersku))
+                    {
+                        groupOfferItems += cart[offersku];
+                    }
                 }
 
                 if (groupOfferItems / storeGroupOffer.Count > 0)
@@ -65,7 +68,7 @@ namespace BeFaster.App.Solutions.CHK
 
                     foreach (var offersku in storeGroupOffer.Skus)
                     {
-                        while (groupOfferItems > 0 && cart[offersku] > 0)
+                        while (groupOfferItems > 0 && cart.ContainsKey(offersku) && cart[offersku] > 0)
                         {
                             cart[offersku]--;
                         }
@@ -120,3 +123,4 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+

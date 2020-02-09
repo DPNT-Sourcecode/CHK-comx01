@@ -88,7 +88,19 @@ namespace BeFaster.App.Tests.Solutions.CHK
             //Assert
             cart.GetTotalPrice(allowedProducts).Should().Be(25);
         }
+
+        [Test]
+        public void ShouldGetCorrectTotalPriceWithOfferAndAdditionalItems()
+        {
+            //Arrange
+            var allowedProducts = new List<Product>
+            {
+                new Product('A', 10, new ProductOffer(3, 25))
+            };
+            //Act
+            var cart = new Cart("AAAA");
+            //Assert
+            cart.GetTotalPrice(allowedProducts).Should().Be(35);
+        }
     }
 }
-
-

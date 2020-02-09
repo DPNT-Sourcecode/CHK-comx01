@@ -19,18 +19,23 @@ namespace BeFaster.App.Solutions.CHK
         public int GetPrice(string skus)
         {
             var totalPrice = 0;
-            var totalItemsOfThisSku = skus.Count(s => s == Sku);
+            var itemsWithThisSku = skus.Count(s => s == Sku);
             var orderedOffers = Offer.OrderByDescending(o => o.Count);
 
             foreach (var offer in orderedOffers)
             {
-                if (totalItemsOfThisSku / offer.Count > 0)
+                var itemsInThisOffer = itemsWithThisSku / offer.Count;
+                if (itemsInThisOffer > 0)
                 {
-                    totalPrice += (totalItemsOfThisSku / Offer.Count * offer.SpecialPrice);
+                    totalPrice += (itemsInThisOffer * offer.SpecialPrice);
                 }
+
+                itemsWithThisSku -= itemsInThisOffer;
             }
 
-            return totalItemsOfThisSku * Price;
+            totalPrice += itemsWithThisSku * Price;
+
+            return totalPrice;
         }
     }
 }

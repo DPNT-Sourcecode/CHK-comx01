@@ -27,8 +27,8 @@ namespace BeFaster.App.Solutions.CHK
         {
             ProductsInStore = new List<Product>()
             {
-                new Product('A', 50, new List<ProductOffer> { new ProductOffer(3, 130) }),
-                new Product('B', 30, new List<ProductOffer> { new ProductOffer(2, 45) }),
+                new Product('A', 50, new ProductOffer(3, 130)),
+                new Product('B', 30, new ProductOffer(2, 45)),
                 new Product('C', 20, null),
                 new Product('D', 15, null)
             };
@@ -81,18 +81,27 @@ namespace BeFaster.App.Solutions.CHK
     {
         public char Sku { get; }
         public int Price { get; }
-        public List<ProductOffer> Offers { get; }
+        public ProductOffer Offer { get; }
 
-        public Product(char sku, int price, List<ProductOffer> offers)
+        public Product(char sku, int price, ProductOffer offer)
         {
             this.Sku = sku;
             this.Price = price;
-            this.Offers = offers;
+            this.Offer = offer;
         }
 
         public int GetPrice(string skus)
         {
-            throw new System.NotImplementedException();
+            var totalPrice = 0;
+            var totalItemsOfThisSku = skus.Select(s => s == Sku).Count();
+
+            if (Offer != null && totalItemsOfThisSku % Offer.Count > 0)
+            {
+                var offerTimes = totalItemsOfThisSku / Offer.Count;
+                return offerTimes * Offer.SpecialPrice;
+            }
+
+            return totalItemsOfThisSku * Price;
         }
     }
 
@@ -108,3 +117,4 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+

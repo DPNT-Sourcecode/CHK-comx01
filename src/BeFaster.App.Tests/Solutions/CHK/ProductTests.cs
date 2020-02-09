@@ -34,6 +34,18 @@ namespace BeFaster.App.Tests.Solutions.CHK
             //Assert
             totalPrice.Should().Be(30);
         }
+
+        [Test]
+        public void ShouldCalculateCorrectPriceWithOffer()
+        {
+            //Arrange
+            var product = new Product('A', 10, new ProductOffer(3, 25));
+            //Act
+            var totalPrice = product.GetPrice("AAA");
+            //Assert
+            totalPrice.Should().Be(25);
+        }
     }
 }
+
 

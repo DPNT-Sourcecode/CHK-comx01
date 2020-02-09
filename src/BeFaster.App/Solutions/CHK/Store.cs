@@ -27,8 +27,8 @@ namespace BeFaster.App.Solutions.CHK
                     new List<SpecialPriceOffer> { new SpecialPriceOffer(5, 45), new SpecialPriceOffer(10, 80) }),
                 new Product('I', 35),
                 new Product('J', 60),
-                new Product('K', 80, 
-                    new List<SpecialPriceOffer> { new SpecialPriceOffer(2, 150) }),
+                new Product('K', 70, 
+                    new List<SpecialPriceOffer> { new SpecialPriceOffer(2, 120) }),
                 new Product('L', 90),
                 new Product('M', 15),
                 new Product('N', 40, null,
@@ -38,7 +38,7 @@ namespace BeFaster.App.Solutions.CHK
                 new Product('Q', 30, new List<SpecialPriceOffer> { new SpecialPriceOffer(3, 80) }),
                 new Product('R', 50, null,
                     new List<FreeProductOffer> { new FreeProductOffer(3, 'Q') }),
-                new Product('S', 30),
+                new Product('S', 20),
                 new Product('T', 20),
                 new Product('U', 40, null,
                     new List<FreeProductOffer> { new FreeProductOffer(3, 'U') }),
@@ -52,3 +52,4 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+

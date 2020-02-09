@@ -7,7 +7,9 @@ namespace BeFaster.App.Solutions.CHK
     {
         public static int ComputePrice(string skus)
         {
-            productsInStore = InitialiseStore();
+            var productsInStore = InitialiseStore();
+
+
 
         }
 
@@ -15,8 +17,10 @@ namespace BeFaster.App.Solutions.CHK
         {
             return new List<Product>()
             {
-                new Product { Sku = "A", Price = 50 },
-                new Product { Sku = }
+                new Product("A", 50),
+                new Product("B", 30),
+                new Product("C", 20),
+                new Product("D", 15)
             };
         }
     }
@@ -26,11 +30,12 @@ namespace BeFaster.App.Solutions.CHK
         public string Sku { get; private set; }
         public int Price { get; private set; }
 
-        public Product(string sku, string price)
+        public Product(string sku, int price)
         {
             this.Sku = sku;
             this.Price = price;
         }
     }
 }
+
 

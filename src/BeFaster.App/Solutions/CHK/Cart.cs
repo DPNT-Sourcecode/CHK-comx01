@@ -49,6 +49,19 @@ namespace BeFaster.App.Solutions.CHK
                 
             }
 
+            AdjustCartForFreeOffers(allowedProducts, cart);
+
+            foreach (var sku in cart.Keys)
+            {
+                var currentSku = allowedProducts.First(p => p.Sku == sku);
+                basketTotal += currentSku.GetPrice(cart[sku]);
+            }
+
+            return basketTotal;
+        }
+
+        private static void AdjustCartForFreeOffers(List<Product> allowedProducts, Dictionary<char, int> cart)
+        {
             for (var skuCount = 0; skuCount < cart.Keys.Count; skuCount++)
             {
                 var sku = cart.Keys.ElementAt(skuCount);
@@ -57,17 +70,9 @@ namespace BeFaster.App.Solutions.CHK
                 {
                     foreach (var offer in currentSku.FreeOffer)
                     {
-                        var itemsInThisOffer = cart[sku]/offer.Count;
+                        var itemsInThisOffer = cart[sku] / offer.Count;
                         if (itemsInThisOffer > 0 && cart.ContainsKey(offer.FreeSku))
                         {
-                            if (sku == offer.FreeSku)
-                            {
-
-                            }
-                            else
-                            {
-                                
-                            }
                             cart[offer.FreeSku] -= itemsInThisOffer;
                             if (cart[offer.FreeSku] < 0)
                             {
@@ -77,14 +82,6 @@ namespace BeFaster.App.Solutions.CHK
                     }
                 }
             }
-
-            foreach (var sku in cart.Keys)
-            {
-                var currentSku = allowedProducts.First(p => p.Sku == sku);
-                basketTotal += currentSku.GetPrice(cart[sku]);
-            }
-
-            return basketTotal;
         }
     }
 }

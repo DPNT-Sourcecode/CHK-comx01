@@ -7,14 +7,14 @@ namespace BeFaster.App.Tests.Solutions.HLO
     [TestFixture]
     public class HelloWorldTests
     {
-        [Test]
-        public void ReturnStringTest()
+        [TestCase("John", ExpectedResult = "Hello, John!")]
+        public string ReturnStringTest(string name)
         {
-            HelloSolution.Hello("").Should().Be("Hello, World!");
-
+            return HelloSolution.Hello(name);
         }
 
     }
 }
+
 
 

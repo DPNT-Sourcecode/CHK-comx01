@@ -5,6 +5,7 @@ namespace BeFaster.App.Solutions.CHK
     public class Store
     {
         public List<Product> ProductsInStore { get; }
+        public GroupOffer GroupOffer { get; }
 
         public Store()
         {
@@ -50,7 +51,8 @@ namespace BeFaster.App.Solutions.CHK
                 new Product('Z', 21)
             };
 
-            
+
+            GroupOffer = new GroupOffer(new List<char> {'S', 'T', 'X', 'Y', 'Z'}, 45);
         }
     }
 }

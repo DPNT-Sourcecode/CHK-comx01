@@ -1,13 +1,15 @@
-﻿namespace BeFaster.App.Solutions.CHK
+﻿using System.Collections.Generic;
+
+namespace BeFaster.App.Solutions.CHK
 {
     public class GroupOffer
     {
-        public int Count { get; }
+        public List<char> Skus { get; }
         public int SpecialPrice { get; }
 
-        public GroupOffer(int count, int specialPrice)
+        public GroupOffer(List<char> skus, int specialPrice)
         {
-            this.Count = count;
+            this.Skus = skus;
             this.SpecialPrice = specialPrice;
         }
     }

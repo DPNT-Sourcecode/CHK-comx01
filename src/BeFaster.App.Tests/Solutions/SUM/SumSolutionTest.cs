@@ -17,6 +17,7 @@ namespace BeFaster.App.Tests.Solutions.SUM
         }
 
         [TestCase(-1, 0)]
+        [TestCase(0, -1)]
         public void NegativeValueCheck(int x, int y)
         {
             Assert.Throws(typeof(ArgumentException), () => SumSolution.Sum(-1, 0));
@@ -24,5 +25,6 @@ namespace BeFaster.App.Tests.Solutions.SUM
 
     }
 }
+
 
 

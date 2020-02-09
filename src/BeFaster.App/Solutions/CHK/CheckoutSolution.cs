@@ -65,10 +65,12 @@ namespace BeFaster.App.Solutions.CHK
         public int TotalPrice(List<Product> allowedProducts)
         {
             var basketTotal = 0;
-            for (var skuCount = 0; skuCount < skus.Length; skuCount++)
+            var uniqueSkus = skus.Distinct().ToList();
+
+            for (var skuCount = 0; skuCount < uniqueSkus.Count(); skuCount++)
             {
-                var currentSku = allowedProducts.First(p => p.Sku == skus[skuCount]);
-                basketTotal += currentSku.Price;
+                var currentSku = allowedProducts.First(p => p.Sku == uniqueSkus[skuCount]);
+                basketTotal += currentSku.GetPrice(skus);
             }
 
             return basketTotal;
@@ -87,6 +89,11 @@ namespace BeFaster.App.Solutions.CHK
             this.Price = price;
             this.Offers = offers;
         }
+
+        public int GetPrice(string skus)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 
     public class ProductOffer
@@ -101,6 +108,7 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+
 
 
 

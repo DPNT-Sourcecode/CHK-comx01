@@ -9,7 +9,12 @@ namespace BeFaster.App.Solutions.CHK
             var store = new Store();
             var cart = new Cart(skus);
 
-            if (cart.IsEmpty() || cart.HasInvalidProduct(store.ProductsInStore))
+            if (cart.IsEmpty())
+            {
+                return 0;
+            }
+
+            if ( cart.HasInvalidProduct(store.ProductsInStore))
             {
                 return -1;
             }
@@ -18,3 +23,4 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+

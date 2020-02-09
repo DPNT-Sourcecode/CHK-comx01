@@ -15,7 +15,12 @@ namespace BeFaster.App.Tests.Solutions.CHK
             return CheckoutSolution.ComputePrice(cartItems);
         }
 
-        [TestCase("", ExpectedResult = -1)]
+        [TestCase("", ExpectedResult = 0)]
+        public int EmptyCart(string cartItems)
+        {
+            return CheckoutSolution.ComputePrice(cartItems);
+        }
+
         [TestCase("E", ExpectedResult = -1)]
         [TestCase("AEB", ExpectedResult = -1)]
         public int InvalidCart(string cartItems)
@@ -37,4 +42,5 @@ namespace BeFaster.App.Tests.Solutions.CHK
 
     }
 }
+
 

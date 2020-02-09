@@ -18,7 +18,7 @@ namespace BeFaster.App.Solutions.CHK
         public int GetPrice(string skus)
         {
             var totalPrice = 0;
-            var totalItemsOfThisSku = skus.Select(s => s == Sku).Count();
+            var totalItemsOfThisSku = skus.Count(s => s == Sku);
 
             if (Offer != null && totalItemsOfThisSku / Offer.Count > 0)
             {
